@@ -1,0 +1,17 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "stdio.h": "c",
+        "cstdio": "c",
+        "cmath": "c",
+        "*.tcc": "c",
+        "cctype": "c",
+        "climits": "c",
+        "cstdarg": "c",
+        "cstdint": "c",
+        "cstdlib": "c",
+        "type_traits": "c",
+        "limits": "c",
+        "typeinfo": "c"
+    }
+}
