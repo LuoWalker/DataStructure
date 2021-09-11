@@ -1,4 +1,4 @@
-# LearnC
+# DataStructure
 提交一些练习的代码和笔记
 
 这是我第一次使用GitHub，建立了第一个仓库
