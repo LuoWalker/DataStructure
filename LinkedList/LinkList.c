@@ -67,8 +67,13 @@ bool ListDelete(LNode* L, int i, int* e)
         return false;
     }
     LNode* p;
-    int j = 0;
+    int j = 1;
     p = L;
+    if (i == 1) {
+        *e = L->data;
+        L->data = L->next->data;
+        L->next = L->next->next;
+    }
     while (p != NULL && j < i - 1) {
         p = p->next;
         j++;

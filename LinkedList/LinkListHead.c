@@ -19,7 +19,8 @@ int main()
         printf("空");
     }
     ListInsert(L, 1, 1);
-    ListDelete(L, 1, &e);
+    ListInsert(L, 2, 2);
+    ListDelete(L, 2, &e);
     printf("%d", e);
     return 0;
 }
