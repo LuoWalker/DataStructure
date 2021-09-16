@@ -9,13 +9,18 @@ typedef struct LNode {
 
 bool ListInsert(LNode* L, int i, int e);
 bool InitList(LNode** L);
+bool ListDelete(LNode* L, int i, int* e);
 int main()
 {
     LNode* L;
+    int e;
     InitList(&L); //如果直接传L的话，是一个野指针，不可以
     if (L == NULL) {
         printf("空");
     }
+    ListInsert(L, 1, 1);
+    ListDelete(L, 1, &e);
+    printf("%d", e);
     return 0;
 }
 
@@ -58,5 +63,31 @@ bool ListInsert(LNode* L, int i, int e)
     p->next = s;
     //此语句将头结点与s相连
 
+    return true;
+}
+
+/* 按位序删除 */
+bool ListDelete(LNode* L, int i, int* e)
+{
+    if (i < 1) {
+        return false;
+    }
+    LNode* p;
+    int j = 0;
+    p = L;
+    while (p != NULL && j < i - 1) {
+        p = p->next;
+        j++;
+    }
+    if (p == NULL) {
+        return false;
+    }
+    if (p->next == NULL) {
+        return false;
+    }
+    LNode* q = p->next; //新建结点，储存第i个
+    *e = q->data; //代回值
+    p->next = q->next; //将p连接i的下一个
+    free(q);
     return true;
 }
