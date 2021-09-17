@@ -10,6 +10,7 @@ typedef struct LNode {
 bool InitList(LNode** L);
 bool ListInsert(LNode** L, int i, int e);
 bool ListDelete(LNode* L, int i, int* e);
+
 int main()
 {
     LNode* L;

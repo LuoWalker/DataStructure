@@ -10,18 +10,25 @@ typedef struct LNode {
 bool ListInsert(LNode* L, int i, int e);
 bool InitList(LNode** L);
 bool ListDelete(LNode* L, int i, int* e);
+LNode* GetElem(LNode* L, int i);
+LNode* LocateElem(LNode* L, int e);
+int Length(LNode* L);
+LNode* List_TailInsert(LNode* L);
 int main()
 {
     LNode* L;
     int e;
+    int len;
     InitList(&L); //如果直接传L的话，是一个野指针，不可以
     if (L == NULL) {
         printf("空");
     }
+    L = List_TailInsert(L);
     ListInsert(L, 1, 1);
     ListInsert(L, 2, 2);
-    ListDelete(L, 2, &e);
-    printf("%d", e);
+    ListDelete(L, 1, &e);
+    len = Length(L);
+    printf("%d %d", e, len);
     return 0;
 }
 
@@ -32,8 +39,36 @@ bool InitList(LNode** L)
     if (L == NULL) {
         return false;
     }
+    (*L)->data = 0;
     (*L)->next = NULL;
     return true;
+}
+
+/* 按位序查找 */
+LNode* GetElem(LNode* L, int i)
+{
+    /* 找到第i个结点 */
+    if (i < 0) {
+        return NULL;
+    }
+    LNode* p;
+    int j = 0; //表示遍历到第几个结点
+    p = L; //新建一个结点，L属于0结点
+    while (p != NULL && j < i) {
+        p = p->next;
+        j++;
+    } //找到第i-1个结点
+    return p;
+}
+
+/* 按数值查找 */
+LNode* LocateElem(LNode* L, int e)
+{
+    LNode* p = L->next;
+    while (p != NULL && p->data != e) {
+        p = p->next;
+    }
+    return p;
 }
 
 /* 按位序插入 */
@@ -45,12 +80,13 @@ bool ListInsert(LNode* L, int i, int e)
 
     /* 找到第i-1个结点 */
     LNode* p;
-    int j = 0; //表示遍历到第几个结点
+    p = GetElem(L, i - 1);
+    /* int j = 0; //表示遍历到第几个结点
     p = L; //新建一个结点，L属于0结点
     while (p != NULL && j < i - 1) {
         p = p->next;
         j++;
-    } //找到第i-1个结点
+    } //找到第i-1个结点 */
     if (p == NULL) {
         return false;
     }
@@ -74,12 +110,13 @@ bool ListDelete(LNode* L, int i, int* e)
         return false;
     }
     LNode* p;
-    int j = 0;
+    p = GetElem(L, i - 1);
+    /* int j = 0;
     p = L;
     while (p != NULL && j < i - 1) {
         p = p->next;
         j++;
-    }
+    } */
     if (p == NULL) {
         return false;
     }
@@ -91,4 +128,54 @@ bool ListDelete(LNode* L, int i, int* e)
     p->next = q->next; //将p连接i的下一个
     free(q);
     return true;
+}
+
+/* 求表的长度 */
+int Length(LNode* L)
+{
+    int len = 0;
+    LNode* p = L;
+    while (p->next != NULL) {
+        p = p->next;
+        len++;
+    }
+    return len;
+}
+
+/* 尾插法建表 */
+LNode* List_TailInsert(LNode* L)
+{
+    int x; //data 数据
+    L = (LNode*)malloc(sizeof(LNode));
+    L->data = 0;
+    LNode *s, *r = L; //*s -> 插入的结点， *r -> 尾结点
+    scanf("%d", &x);
+    while (x != 9999) {
+        s = (LNode*)malloc(sizeof(LNode));
+        s->data = x;
+        r->next = s; //s插到尾结点之后
+        r = s; //r始终保持尾结点
+        scanf("%d", &x);
+    }
+    r->next = NULL; //以防脏数据
+    return L;
+}
+
+/* 头插法建表 */
+LNode* List_HeadInsert(LNode* L)
+{
+    int x; //data 数据
+    L = (LNode*)malloc(sizeof(LNode));
+    L->data = 0;
+    L->next = NULL;
+    LNode *s, *r = L; //*s -> 插入的结点， *r -> 尾结点
+    scanf("%d", &x);
+    while (x != 9999) {
+        s = (LNode*)malloc(sizeof(LNode));
+        s->data = x;
+        s->next = L->next;
+        L->next = s; //s插到头结点之后
+        scanf("%d", &x);
+    }
+    return L;
 }
