@@ -1,36 +1,13 @@
+#include "LinkListHead.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 /* 带头结点对每一个结点操作相同，L永远指向头结点 */
-typedef struct LNode {
+/* typedef struct LNode {
     int data; //数据域
     struct LNode* next; //指针域
 } LNode;
-
-bool ListInsert(LNode* L, int i, int e);
-bool InitList(LNode** L);
-bool ListDelete(LNode* L, int i, int* e);
-LNode* GetElem(LNode* L, int i);
-LNode* LocateElem(LNode* L, int e);
-int Length(LNode* L);
-LNode* List_TailInsert(LNode* L);
-int main()
-{
-    LNode* L;
-    int e;
-    int len;
-    InitList(&L); //如果直接传L的话，是一个野指针，不可以
-    if (L == NULL) {
-        printf("空");
-    }
-    L = List_TailInsert(L);
-    ListInsert(L, 1, 1);
-    ListInsert(L, 2, 2);
-    ListDelete(L, 1, &e);
-    len = Length(L);
-    printf("%d %d", e, len);
-    return 0;
-}
+ */
 
 /* 初始化链表 */
 bool InitList(LNode** L)
@@ -168,7 +145,7 @@ LNode* List_HeadInsert(LNode* L)
     L = (LNode*)malloc(sizeof(LNode));
     L->data = 0;
     L->next = NULL;
-    LNode *s, *r = L; //*s -> 插入的结点， *r -> 尾结点
+    LNode* s = L; //*s -> 插入的结点， *r -> 尾结点
     scanf("%d", &x);
     while (x != 9999) {
         s = (LNode*)malloc(sizeof(LNode));
