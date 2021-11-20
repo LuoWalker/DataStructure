@@ -1,13 +1,14 @@
 #include <stdio.h>
-#include <stdlib.h>
 
+void fun(int *b)
+{
+    b[0] = 2;
+    b[1] = 3;
+}
 int main()
 {
-    int* a;
-    a = (int*)malloc(3 * sizeof(int));
-    a[0] = 2;
-    a[1] = 0;
-    a[2] = 1;
-
+    int a[2] = { 1, 2 };
+    fun(a);
+    printf("%d %d", a[0], a[1]);
     return 0;
 }
