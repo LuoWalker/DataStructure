@@ -55,6 +55,7 @@ void OutPutsList(SqList* L)
 {
     int i;
     for (i = 0; i < L->Length; i++) {
-        printf("%d", L->data[i]);
+        printf("%d ", L->data[i]);
     }
+    printf("\n");
 }
