@@ -14,5 +14,6 @@ void InitList(SqList* L); // 初始化顺序表
 bool ListInsert(SqList* L, int i, int e); //在表L的第i处插入e
 void CreateList(SqList* L, int n); //建表
 bool ListDelete(SqList* L, int i, int* e); //在表L中删去第i个，并赋给e
+void OutPutsList(SqList* L); //输出
 
 #endif

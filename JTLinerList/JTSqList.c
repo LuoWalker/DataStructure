@@ -50,3 +50,11 @@ bool ListDelete(SqList* L, int i, int* e)
     L->Length -= 1;
     return true;
 }
+
+void OutPutsList(SqList* L)
+{
+    int i;
+    for (i = 0; i < L->Length; i++) {
+        printf("%d", L->data[i]);
+    }
+}
