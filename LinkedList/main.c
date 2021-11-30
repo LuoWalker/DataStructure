@@ -5,30 +5,24 @@
 
 LNode* sort(LNode* L)
 {
-    LNode *maxP, *p, *q, *r;
-    int temp;
-    int flag = 0;
+    LNode *p, *pre, *r;
     p = L->next;
-    maxP = p;
-
+    r = p->next;
+    p->next = NULL;
+    p = r;
     while (p != NULL) {
         r = p->next;
-        for (q = p; q != NULL; q = q->next) {
-            if (q->data > maxP->data) {
-                maxP = q;
-                flag = 1;
-            }
+        pre = L;
+        while (pre->next != NULL && pre->next->data < p->data) {
+            pre = pre->next;
         }
-        if (flag == 1) {
-            temp = p->data;
-            p->data = maxP->data;
-            maxP->data = temp;
-        }
+        p->next = pre->next;
+        pre->next = p;
         p = r;
     }
-
     return L;
 }
+
 int main()
 {
     LNode *L, *p;
