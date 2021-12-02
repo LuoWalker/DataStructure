@@ -1,7 +1,7 @@
 #include "Stack.h"
 #include <stdbool.h>
 #include <stdio.h>
-
+//栈的基本操作
 void InitStack(SqStack* S)
 {
     S->top = -1;

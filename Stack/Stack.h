@@ -7,7 +7,7 @@ typedef struct Stack {
     int data[MaxSize];
     int top;
 } SqStack;
-
+//栈的基本操作
 void InitStack(SqStack* S);
 bool StackEmpty(SqStack S);
 bool Push(SqStack* S, int x);
