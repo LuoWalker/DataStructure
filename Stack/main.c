@@ -11,7 +11,9 @@ int main()
     Push(&S, x);
     printf("%d\n", StackEmpty(S));
     Pop(S, &x);
-    printf("%d", x);
+    printf("%d\n", x);
+    DestroyStack(&S);
+    printf("%d\n", StackEmpty(S));
 
     return 0;
 }

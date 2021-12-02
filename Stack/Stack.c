@@ -32,11 +32,17 @@ bool Pop(SqStack S, int* x)
         return true;
     }
 }
-bool GetTop(SqStack* S, int* x)
+bool GetTop(SqStack S, int* x)
 {
-    return true;
+    if (S.top == -1) {
+        return false;
+    } else {
+        *x = S.data[S.top];
+        return true;
+    }
 }
 bool DestroyStack(SqStack* S)
 {
+    S->top = -1;
     return true;
 }

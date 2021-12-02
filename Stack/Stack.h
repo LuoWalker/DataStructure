@@ -12,7 +12,7 @@ void InitStack(SqStack* S);
 bool StackEmpty(SqStack S);
 bool Push(SqStack* S, int x);
 bool Pop(SqStack S, int* x);
-bool GetTop(SqStack* S, int* x);
+bool GetTop(SqStack S, int* x);
 bool DestroyStack(SqStack* S);
 
 #endif
