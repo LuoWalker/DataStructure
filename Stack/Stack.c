@@ -23,7 +23,7 @@ bool Push(SqStack* S, int x)
         return true;
     }
 }
-bool Pop(SqStack S, int* x)
+bool Pop(SqStack* S, int* x)
 {
     if (S.top == -1) {
         return false;

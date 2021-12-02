@@ -10,7 +10,7 @@ int main()
     scanf("%d", &x);
     Push(&S, x);
     printf("%d\n", StackEmpty(S));
-    Pop(S, &x);
+    Pop(&S, &x);
     printf("%d\n", x);
     DestroyStack(&S);
     printf("%d\n", StackEmpty(S));
