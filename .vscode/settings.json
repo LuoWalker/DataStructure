@@ -14,6 +14,7 @@
         "limits": "c",
         "typeinfo": "c",
         "stdbool.h": "c",
-        "stack.h": "c"
+        "stack.h": "c",
+        "linkqueue.h": "c"
     }
 }

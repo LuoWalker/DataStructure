@@ -1,4 +1,5 @@
-#include "Queue.h"
+#include "LinkQueue.h"
+#include "SqQueue.h"
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -6,11 +7,12 @@ int main()
 {
     int x;
     SqQueue Q;
+    LinkQueue LQ;
     InitQueue(&Q);
-    printf("%d", isEmpty(Q));
+    InitQueueL(&LQ);
     scanf("%d", &x);
+    EnQueueL(&LQ, x);
     EnQueue(&Q, x);
-    printf("%d", isEmpty(Q));
 
     return 0;
 }
