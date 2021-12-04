@@ -15,6 +15,7 @@
         "typeinfo": "c",
         "stdbool.h": "c",
         "stack.h": "c",
-        "linkqueue.h": "c"
+        "linkqueue.h": "c",
+        "bitree.h": "c"
     }
 }
