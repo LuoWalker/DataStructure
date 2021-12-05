@@ -1,11 +1,11 @@
-#include "BiTree_.h"
+#include "Biree_.h"
 #include <stdio.h>
 
 int main()
 {
     BiTree T;
     InitiaBiTree(&T);
-    PreCreateBiTree(&T);
+    CreateBiTree(&T);
 
     return 0;
 }

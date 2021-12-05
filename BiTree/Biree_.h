@@ -7,6 +7,6 @@ typedef struct BiNode {
 } BiNode, *BiTree;
 
 void InitiaBiTree(BiTree* T);
-void PreCreateBiTree(BiTree* T);
+void CreateBiTree(BiTree* T);
 
 #endif
