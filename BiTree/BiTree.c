@@ -4,6 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void vivst(BiTree T)
+{
+    printf("%d", T->data);
+}
+
 void InitiaBiTree(BiTree* T)
 {
     *T = (BiTree)malloc(sizeof(BiNode));
@@ -111,6 +116,24 @@ void PostOrder(BiTree T)
             } else {
                 p = p->rchild;
             }
+        }
+    }
+}
+
+void LevelOrder(BiTree T)
+{
+    SqQueue Q;
+    InitQueue(&Q);
+    BiTree p = T;
+    EnQueue(&Q, T);
+    while (p || !isEmpty(Q)) {
+        DeQueue(&Q, &p);
+        vivst(p);
+        if (p->lchild != NULL) {
+            DeQueue(p->lchild);
+        }
+        if (p.rchild != NULL) {
+            DeQueue(&Q, p->rchild)
         }
     }
 }

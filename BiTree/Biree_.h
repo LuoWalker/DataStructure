@@ -6,6 +6,7 @@ typedef struct BiNode {
     struct BiNode *lchild, *rchild;
 } BiNode, *BiTree;
 
+void vivst(BiTree T);
 void InitiaBiTree(BiTree* T);
 void CreateBiTree(BiTree* T);
 void PreOrder(BiTree T);
