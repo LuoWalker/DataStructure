@@ -8,5 +8,8 @@ typedef struct BiNode {
 
 void InitiaBiTree(BiTree* T);
 void CreateBiTree(BiTree* T);
+void PreOrder(BiTree T);
+void InOrder(BiTree T);
+void PostOrder(BiTree T);
 
 #endif
