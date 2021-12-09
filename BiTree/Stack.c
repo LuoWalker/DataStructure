@@ -25,10 +25,10 @@ bool Push(SqStack* S, int x)
 }
 bool Pop(SqStack* S, int* x)
 {
-    if (S.top == -1) {
+    if (S->top == -1) {
         return false;
     } else {
-        *x = S.data[S.top--];
+        *x = S->data[S->top--];
         return true;
     }
 }

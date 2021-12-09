@@ -43,7 +43,7 @@ void PreOrder(BiTree T)
     }
 }
 
-void PreOrder2(BiTree T)
+/* void PreOrder2(BiTree T)
 {
     SqStack s;
     InitStack(&s);
@@ -58,7 +58,7 @@ void PreOrder2(BiTree T)
             p = p->rchild
         }
     }
-}
+} */
 
 void InOrder(BiTree T)
 {
@@ -69,7 +69,7 @@ void InOrder(BiTree T)
     }
 }
 
-void InOrder2(BiTree T)
+/* void InOrder2(BiTree T)
 {
     SqStack s;
     InitStack(&s);
@@ -85,7 +85,7 @@ void InOrder2(BiTree T)
             p = p->rchild
         }
     }
-}
+} */
 
 void PostOrder(BiTree T)
 {
@@ -96,7 +96,7 @@ void PostOrder(BiTree T)
     }
 }
 
-void PostOrder(BiTree T)
+/* void PostOrder2(BiTree T)
 {
     SqStack s;
     InitStack(&s);
@@ -118,9 +118,9 @@ void PostOrder(BiTree T)
             }
         }
     }
-}
+} */
 
-void LevelOrder(BiTree T)
+/* void LevelOrder(BiTree T)
 {
     SqQueue Q;
     InitQueue(&Q);
@@ -132,8 +132,8 @@ void LevelOrder(BiTree T)
         if (p->lchild != NULL) {
             DeQueue(p->lchild);
         }
-        if (p.rchild != NULL) {
-            DeQueue(&Q, p->rchild)
+        if (p->rchild != NULL) {
+            DeQueue(&Q, p->rchild);
         }
     }
-}
+} */
