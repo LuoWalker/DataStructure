@@ -25,6 +25,7 @@ void CreateBiTree(BiTree* T)
     p = (BiTree)malloc(sizeof(BiNode));
     p->data = x;
     if (x == 0) {
+        T = NULL;
         return;
     }
     p->rchild = NULL;
@@ -137,3 +138,50 @@ void PostOrder(BiTree T)
         }
     }
 } */
+
+int BtDepth(BiTree T)
+{
+    if (T == NULL) {
+        return 0;
+    }
+    int front = 0, rear = 0;
+    int last = 1, level = 0; // last 为每一层最后一个，初始只有一个根节点
+    BiTree Q[MaxSize]; // 手动队列
+    BiTree p = T;
+    Q[rear++] = T; // 入队
+
+    while (front < rear) { // 队列判空
+        p = Q[front++]; // 出队
+
+        if (p->lchild != NULL) {
+            Q[rear++] = p->lchild;
+        }
+        if (p->rchild != NULL) {
+            Q[rear++] = p->rchild;
+        }
+
+        if (front == last) { // 当某一层遍历完，当前队列里为该层的所有孩子节点，即 last=rear
+            level++;
+            last = rear;
+        }
+    }
+
+    return level;
+}
+
+int BtDepth2(BiTree T)
+{
+    int l, r;
+
+    if (T == NULL) {
+        return 0;
+    }
+    l = BtDepth2(T->lchild);
+    r = BtDepth2(T->rchild);
+
+    if (l > r) {
+        return l + 1;
+    } else {
+        return r + 1;
+    }
+}

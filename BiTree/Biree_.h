@@ -16,4 +16,7 @@ void PreOrder2(BiTree T);
 void InOrder2(BiTree T);
 void PostOrder2(BiTree T);
 
+int BtDepth(BiTree T);
+int BtDepth2(BiTree T);
+
 #endif
